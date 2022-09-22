@@ -11,16 +11,8 @@
     <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
     <script src="gesture-detector.js"></script>
     <script src="gesture-handler.js"></script>
-
-    <script type = "text/javascript">
-      
-      function changeObject() {  
-        var box= document.querySelector("#box")
-      box.setAttribute("visible",false);
-      
-              }
-      
-      </script>
+    <script src ="button-functions.js"></script>
+    
   </head>
 
   <body>
@@ -32,13 +24,7 @@
       gesture-detector
       id="scene"
     >
-      <a-assets>
-        <a-asset-item
-          id="bowser"
-          src="https://cdn.glitch.com/06bd98b4-97ee-4c07-a546-fe39ca205034%2Fbowser.glb"
-        >
-        </a-asset-item>
-      </a-assets>
+
 
       <a-marker
         preset="hiro"
@@ -48,16 +34,36 @@
         id="markerA"
       >
         <a-box
-          visible = "true"
+          visible = "false"
           id="box"
           position="0 0 0"
           class="clickable"
           gesture-handler
         >
         </a-box>
+        <a-cylinder 
+        visible = "false"
+        id="cylinder"
+        color="crimson" 
+        height="1" 
+        radius="0.5"
+        >
+      </a-cylinder>
+
+      <a-cone 
+      visible = "false"
+      id="cone"
+      color="tomato" 
+      radius-bottom="0.5" 
+      radius-top="0"
+      >
+    </a-cone>
+
       </a-marker>
       <a-entity camera></a-entity> 
-      <button class="button1" onclick="changeObject()">Green</button>
+      <button class="button1" onclick="changeObjectToCube()">Cube</button>
+      <button class="button2" onclick="changeObjectToCylinder()">Cylinder</button>
+      <button class="button3" onclick="changeObjectToCone()">Cone</button>
     </a-scene>
 
   </body>
